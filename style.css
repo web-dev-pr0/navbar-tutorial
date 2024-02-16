@@ -1,0 +1,139 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+
+.nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: #333;
+  padding: 1.5rem;
+  z-index: 1;
+}
+
+.nav-main-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav-brand {
+  text-decoration: none;
+  color: white;
+  font-size: 1.875rem;
+  cursor: pointer;
+}
+
+.nav-link-container {
+  padding: 0;
+  list-style: none;
+  display: none;
+  gap: 1.5rem;
+  font-size: 1.5rem;
+}
+
+.nav-link {
+  text-decoration: none;
+  color: white;
+}
+
+.nav-link-container li {
+  position: relative;
+}
+
+.nav-link::after {
+  content: "";
+  width: 1rem;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  background-color: white;
+  height: 1px;
+  transition: .5s;
+}
+
+.nav-link:hover::after{
+  width: 100%;
+}
+
+/* When the screen is wider than 640px */
+@media (min-width: 640px) {
+  .nav {
+    padding-inline: 6rem;
+  }
+}
+
+/* When the screen is wider than 1024px */
+@media (min-width: 1024px) {
+  .nav-link-container {
+    display: flex;
+  }
+
+  .nav-brand {
+    font-size: 2.75rem;
+  }
+
+  .hamburger-nav-link-container {
+    display: none;
+  }
+
+  .hamburger-menu {
+    display: none;
+  }
+}
+
+/* Hamburger Menu */
+.hamburger-nav-link-container {
+  list-style: none;
+  z-index: 10;
+  background-color: #333;
+  padding-inline: 4rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2.5rem;
+  font-size: 1.5rem;
+  height: 100vh;
+  position: absolute;
+  right: -100%;
+  top: -24px;
+  box-shadow: 0 0 5px black;
+  transition: 300ms;
+}
+
+.hamburger-nav-link-container a {
+  text-decoration: none;
+  color: white;
+}
+
+.hamburger-nav-link-container-open {
+  right: 0;
+}
+
+.hamburger-menu {
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: white;
+}
+
+.close-hamburger-menu {
+  z-index: 10;
+  color: white;
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  display: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.close-hamburger-menu-open {
+  display: block;
+}
